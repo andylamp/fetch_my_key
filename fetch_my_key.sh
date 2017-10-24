@@ -16,9 +16,32 @@ if [ "$#" -ne 2 ]; then
   echo -e "not enough arguments, got $# expected 2.\nUsage: ./fetch_my_key.sh username ssh_key_link"; exit 1;
 fi
 
+## beautiful and tidy way to expand tilde (~) by C. Duffy.
+expandPath() {
+  case $1 in
+    ~[+-]*)
+      local content content_q
+      printf -v content_q '%q' "${1:2}"
+      eval "content=${1:0:2}${content_q}"
+      printf '%s\n' "$content"
+      ;;
+    ~*)
+      local content content_q
+      printf -v content_q '%q' "${1:1}"
+      eval "content=~${content_q}"
+      printf '%s\n' "$content"
+      ;;
+    *)
+      printf '%s\n' "$1"
+      ;;
+  esac
+}
+
 KEY_LINK=$2
 USER_NAME=$1
-USER_SSH_PATH="/home/${USER_NAME}/.ssh"
+USER_PATH=$(eval echo ~${USER_NAME})
+USER_SSH_PATH="${USER_PATH}/.ssh"
+
 AUTH_KEYS="authorized_keys"
 CL_ASUSER="cl-asuser"
 
