@@ -1,27 +1,39 @@
 # Fetch and add ssh public keys
 
 One task that is asked of me very frequently is to add people's `ssh` public
-keys; so I am doing the same commands over and over... So I mean there must
-be an easier way... This is a tiny script that fetches a user `ssh` key from 
-a `URL` and adds it to the `authorized_keys` file; usage is simple as is 
-shown below:
+keys; so I am doing the same commands over and over... There must
+be an easier way... this is a tiny script that fetches a user `ssh` key from 
+a `URL` and adds it to the `authorized_keys` file.
 
-```bash
-$ ./fetch_my_key.sh my_user my_key_url
+# Initial stuff.
+
+First of all you have to clone this repo using the following command:
+
+```
+$ git clone https://github.com/andylamp/fetch_my_key
 ```
 
-If the provided user is not available, we try to create it; at the moment this 
-only supports the CL user creation scheme used for managed servers hosted in the 
-University of Cambridge...
-
-# Permissions
-
-Please run this script using `sudo` and also give it execution permissions (`+x`) as
-is shown below:
+Go in `fetch_my_key` folder and give it execution permissions as is shown
+below:
 
 ```
 $ chmod +x ./fetch_my_key.sh
 ```
+
+Then you are ready to run this script as is shown next.
+
+# Running the script.
+
+Usage is pretty simple, as one can see below:
+
+```bash
+$ sudo ./fetch_my_key.sh my_user my_key_url
+```
+
+You have to put the userid (usually, the raven id) and a publicly available 
+`url` that the key resides. If the provided user is not available, it tries to 
+create it; at the moment this only supports the CL user creation scheme 
+used for managed servers hosted in the University of Cambridge...
 
 # Dropbox links
 
