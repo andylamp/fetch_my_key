@@ -35,7 +35,7 @@ You have to put the userid (usually, the raven id) and a publicly available
 create it; at the moment this only supports the CL user creation scheme 
 used for managed servers hosted in the University of Cambridge...
 
-# Dropbox links
+# Dropbox links.
 
 One usual way of hosting the public keys is to have them in `Dropbox`; but when
 sharing from `Dropbox` adds either a `?dl=0` or `?dl=1' in the end of the file,
