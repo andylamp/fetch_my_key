@@ -37,7 +37,7 @@ used for managed servers hosted in the University of Cambridge...
 
 # Dropbox links.
 
-One usual way of hosting the public keys is to have them in `Dropbox`; but when
+One widely used way of hosting the public keys is to have them in `Dropbox`; but when
 sharing from `Dropbox` adds either a `?dl=0` or `?dl=1' in the end of the file,
 hence the links looks like this:
 
