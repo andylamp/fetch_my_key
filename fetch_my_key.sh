@@ -18,8 +18,6 @@ fi
 
 KEY_LINK=$2
 USER_NAME=$1
-USER_PATH=$(eval echo ~${USER_NAME})
-USER_SSH_PATH="${USER_PATH}/.ssh"
 
 AUTH_KEYS="authorized_keys"
 CL_ASUSER="cl-asuser"
@@ -50,6 +48,13 @@ else
     echo "User needs to present in the system in order to add the keys, aborting..."; exit 1;
   fi
 fi
+
+
+# move evaluation of user path and ssh build-up
+# down here, so we don't mess up if the user
+# is created now.
+USER_PATH=$(eval echo ~${USER_NAME})
+USER_SSH_PATH="${USER_PATH}/.ssh"
 
 # get the key and put it in the correct file
 # if it does not exist create it.
