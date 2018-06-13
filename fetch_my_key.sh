@@ -4,7 +4,7 @@
 #
 # Author: Andreas Grammenos (andreas.grammenos@gmail.com)
 #
-# Last touched: 24/10/2017
+# Last touched: 13/06/2018
 
 # check for sudo
 if [[ $(id -u) -ne 0 ]]; then
@@ -20,16 +20,12 @@ KEY_LINK=$2
 USER_NAME=$1
 
 AUTH_KEYS="authorized_keys"
-CL_ASUSER="cl-asuser"
 
 # check if the user exists
 if id "$1" >/dev/null 2>&1; then
   echo "User ${USER_NAME} already exists"
 else
   echo "User ${USER_NAME} doesn't exist, trying to create it"
-  # check if we can
-  command -v ${CL_ASUSER} >/dev/null 2>&1 ||
-    { echo >&2 "I require ${CL_ASUSER} but it's not installed, cannot create user ${USER_NAME} aborting..."; exit 1; }
 
   # now check if want to add the user
   read -p "Add user ${USER_NAME}? (y/n): " -n 1 -r
@@ -37,7 +33,7 @@ else
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     # do dangerous stuff
     echo "Creating using cl-way, if this fails that means user doesn't have CL account..."
-    cl-asuser cl-add-user -q ${USER_NAME}
+    cl-add-user -q ${USER_NAME}
     if [ $? -eq 0 ]; then
       echo "User ${USER_NAME} added successfully, now proceeding to add ssh key."
     else
