@@ -7,7 +7,7 @@ a `URL` and adds it to the `authorized_keys` file.
 
 The script supports two modes:
 
- - Fetch key from URL - such as from Dropbox, Google drive, or other remote location.
+ - Fetch key from a publicly available URL - such as the likes of Dropbox, Google Drive, or other remote locations.
  - Use key from shell argument -- i.e. directly paste it in the command line.
 
 # Initial stuff.
