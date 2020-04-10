@@ -31,6 +31,7 @@ Then you are ready to run this script as is shown next.
 
 To run the script you have to put the `userid` (usually, the raven id).
 Additionally we require the location of the key from a publicly available `url` or directly pasting it in the terminal as a parameter. 
+The utility is "smart" enough to distinguish between an inline key and a URL - so you don't have to worry about it.
 If the provided user is not available, it tries to create it; at the moment this only supports the CL user creation scheme used for managed servers hosted in the University of Cambridge.
 
 ## Using remote URL
