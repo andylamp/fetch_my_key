@@ -5,6 +5,11 @@ keys; so I am doing the same commands over and over... There must
 be an easier way... this is a tiny script that fetches a user `ssh` key from 
 a `URL` and adds it to the `authorized_keys` file.
 
+The script supports two modes:
+
+ - Fetch key from URL - such as from Dropbox, Google drive, or other remote location.
+ - Use key from shell argument -- i.e. directly paste it in the command line.
+
 # Initial stuff.
 
 First of all you have to clone this repo using the following command:
@@ -24,16 +29,25 @@ Then you are ready to run this script as is shown next.
 
 # Running the script.
 
-Usage is pretty simple, as one can see below:
+To run the script you have to put the `userid` (usually, the raven id).
+Additionally we require the location of the key from a publicly available `url` or directly pasting it in the terminal as a parameter. 
+If the provided user is not available, it tries to create it; at the moment this only supports the CL user creation scheme used for managed servers hosted in the University of Cambridge.
+
+## Using remote URL
+
+The following syntax should be used when fetching an ssh key from a remote URL:
 
 ```bash
 $ sudo ./fetch_my_key.sh my_user my_key_url
 ```
 
-You have to put the userid (usually, the raven id) and a publicly available 
-`url` that the key resides. If the provided user is not available, it tries to 
-create it; at the moment this only supports the CL user creation scheme 
-used for managed servers hosted in the University of Cambridge...
+## Using embedded key
+
+The following syntax should be used when embedding the key directly in the terminal:
+
+```bash
+$ sudo ./fetch_my_key.sh my_user "<ssh-key-contents>"
+```
 
 # Dropbox links.
 
