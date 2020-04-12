@@ -50,6 +50,8 @@ The following syntax should be used when embedding the key directly in the termi
 $ sudo ./fetch_my_key.sh my_user "<ssh-key-contents>"
 ```
 
+Please note the quotes ("") - they need to be present and surround the pasted key text.
+
 # Dropbox links.
 
 One widely used way of hosting the public keys is to have them in `Dropbox`; but when
