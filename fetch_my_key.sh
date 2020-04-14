@@ -49,7 +49,7 @@ KEY_IS_URL=false
 AUTH_KEYS="authorized_keys"
 
 # check if the key is a url based on normal patterns.
-if validate_url ${SSH_KEY_BUFF}; then
+if validate_url "${SSH_KEY_BUFF}"; then
   KEY_IS_URL=true
   cli_info "Detected ssh key url."
 else
