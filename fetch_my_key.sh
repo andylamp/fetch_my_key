@@ -69,10 +69,10 @@ else
     # do dangerous stuff
     cli_warning "Creating using cl-way, if this fails that means user doesn't have CL account..."
     cl-add-user -q ${USER_NAME}
-    if [[ ${?} -eq 0 ]]; then
-      cli_info "User ${USER_NAME} added successfully, now proceeding to add ssh key."
-    else
+    if { cmd 2>&1 >&3 3>&- | grep '^' >&2; } 3>&1; then
       cli_error "User ${USER_NAME} failed to be added, ensure CL account exists."; exit 1;
+    else
+      cli_info "User ${USER_NAME} added successfully, now proceeding to add ssh key."
     fi
   else
     cli_error "User needs to present in the system in order to add the keys, aborting..."; exit 1;
